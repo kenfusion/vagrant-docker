@@ -1,2 +1,2 @@
 # vagrant-docker
-Lab for docker on a vagrant 
+Lab for docker on a vagrant box
