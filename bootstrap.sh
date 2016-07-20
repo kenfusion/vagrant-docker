@@ -10,10 +10,17 @@ apt-get install -y apt-transport-https ca-certificates
 apt-get purge -y lxc-docker
 apt-cache policy docker-engine
 
-apt-get install -y build-essential libssl-dev libyaml-dev libffi-dev python-dev python-pip docker.io
-pip install --upgrade pip
-pip install --upgrade ansible boto boto3 awscli docker-compose
+apt-get install -y build-essential libssl-dev libyaml-dev libffi-dev python-dev python-pip docker.io tree unzip
+pip install --upgrade ansible boto boto3 awscli docker-compose virtualenvwrapper
 usermod -aG docker vagrant
 ansible --version
 docker --version
 docker-compose --version
+
+mkdir /home/vagrant/{develop,.virtualenvs}
+
+cat << EOF >> /home/vagrant/.profile
+export WORKON_HOME=\$HOME/.virtualenvs
+export PROJECT_HOME=\$HOME/develop
+source /usr/local/bin/virtualenvwrapper.sh
+EOF
