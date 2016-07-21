@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+export DEBIAN_FRONTEND=noninteractive
 
 #Install docker: https://docs.docker.com/v1.11/engine/installation/linux/ubuntulinux/
 
@@ -21,8 +22,17 @@ apt-get purge -y lxc-docker
 
 # install packages
 apt-get upgrade -y
-apt-get install -y build-essential libssl-dev libyaml-dev libffi-dev python-dev python-pip docker.io tree unzip
-pip install --upgrade ansible boto boto3 awscli docker-compose virtualenvwrapper
+apt-get install -y python-pip docker.io tree
+pip install --upgrade boto boto3 awscli docker-compose virtualenvwrapper
+
+
+# install ansible
+# http://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-apt-ubuntu
+apt-get install software-properties-common
+apt-add-repository -y ppa:ansible/ansible
+apt-get update
+apt-get install -y ansible
+
 
 # add vagrant user to docker group
 usermod -aG docker vagrant
