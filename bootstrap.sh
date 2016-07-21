@@ -17,8 +17,7 @@ ansible --version
 docker --version
 docker-compose --version
 
-mkdir /home/vagrant/{develop,.virtualenvs}
-
+sudo -u vagrant mkdir /home/vagrant/{develop,.virtualenvs}
 cat << EOF >> /home/vagrant/.profile
 export WORKON_HOME=\$HOME/.virtualenvs
 export PROJECT_HOME=\$HOME/develop
