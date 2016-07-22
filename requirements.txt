@@ -1,0 +1,4 @@
+Django==1.9.8
+django-completion==0.2.1
+django-cors-headers==1.1.0
+djangorestframework==3.4.0
