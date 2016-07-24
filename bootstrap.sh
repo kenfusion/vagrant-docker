@@ -22,7 +22,7 @@ apt-get purge -y lxc-docker
 
 # install packages
 apt-get upgrade -y
-apt-get install -y python-pip docker.io tree
+apt-get install -y python-pip python-dev libmysqlclient-dev nodejs npm docker.io tree
 pip install --upgrade boto boto3 awscli docker-compose virtualenvwrapper
 
 
